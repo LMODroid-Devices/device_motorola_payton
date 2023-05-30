@@ -20,7 +20,6 @@ $(call inherit-product, vendor/lmodroid/config/common_full_phone.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
 # Device
 $(call inherit-product, device/motorola/payton/device.mk)
@@ -48,13 +47,6 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl.recovery \
     bootctrl.sdm660 \
     bootctrl.sdm660.recovery
-
-# TWRP
-ifeq ($(WITH_TWRP),true)
-    $(call inherit-product, device/motorola/payton/twrp/twrp.mk)
-else
-    TARGET_RECOVERY_FSTAB := device/motorola/sdm660-common/rootdir/etc/fstab.qcom
-endif
 
 # Device identifiers
 PRODUCT_DEVICE := payton
